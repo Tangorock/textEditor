@@ -1,0 +1,350 @@
+{\rtf1\ansi\ansicpg1250\deff0\nouicompat\deflang1029{\fonttbl{\f0\fnil\fcharset238 Microsoft Sans Serif;}{\f1\fnil\fcharset0 Microsoft Sans Serif;}}
+{\colortbl ;\red0\green0\blue0;\red173\green216\blue230;\red66\green150\blue205;\red30\green77\blue167;\red118\green98\blue164;}
+{\*\generator Riched20 10.0.19041}\viewkind4\uc1 
+\pard\cf1\f0\fs17 using System;\par
+using System.Collections.Generic;\par
+using System.Linq;\par
+using System.Text;\par
+using System.Threading.Tasks;\par
+using System.Windows.Forms;\par
+using System.Drawing;\par
+using System.Drawing.Printing;\par
+\par
+/*\par
+ * Hotov\f1\lang1033\'e9 funkce:\par
+ * OTEV\f0\'d8\f1\'cdT\par
+ * NOV\'dd\par
+ * ULO\f0\'8eIT\par
+ * ULO\'8eIT JAKO\par
+ * TISK\par
+ * ZAROVN\f1\'c1N\'cd TEXTU\par
+ * FONT, BARVA, VELIKOST TEXTU\par
+ * SYNTAXE C#\par
+ * \par
+ * ----------------------------------------\par
+ * \par
+ * SYNTAXE HTML\par
+ */\par
+\par
+\cf2 namespace\cf1  textovyEditor\par
+\{\par
+    class LamaPadClass\par
+    \{\par
+        // deklarace prom\f0\'ecnn\f1\'fdch\par
+        \cf3 public\cf1  DialogResult ukladaniNovy;\par
+\par
+        \cf4 int\cf1  pozice = 0;\par
+\par
+        \cf3 public\cf1  \cf4 string\cf1  cestaSouboru = "";\par
+        \cf3 public\cf1  \cf4 bool\cf1  ulozeno = false;\par
+\par
+        //funkce pro na\f0\'e8ten\f1\'ed dat/souboru\par
+        \cf3 public\cf1  \cf3 void\cf1  NacistData(OpenFileDialog ofd, RichTextBox tb)\par
+        \{\par
+            ofd.Title = "Otev\f0\'f8\f1\'edt soubor";\par
+            // filter pro vyhled\'e1v\'e1n\'ed jenom textov\'fdch soubor\f0\'f9\par
+            ofd.Filter = "(*.txt)|*.txt|(*.rtf)|*.rtf|(*.*)|*.*";      \par
+            \par
+            \cf5 if\cf1  (ofd.ShowDialog() == DialogResult.OK)\par
+            \{\par
+                tb.LoadFile(ofd.FileName);\par
+                cestaSouboru = ofd.FileName;\par
+            \}\par
+        \}\par
+\par
+        // funkce pro ukl\f1\'e1d\'e1n\'ed dat/souboru\par
+        \cf3 public\cf1  \cf3 void\cf1  UlozitDataDialog(SaveFileDialog sfd, RichTextBox tb)\par
+        \{\par
+            sfd.Title = "Ulo\f0\'9eit jako";\par
+            // koncovka souboru .txt (textov\f1\'fd soubor)\par
+            sfd.DefaultExt = "txt";\par
+\par
+            sfd.Filter = "(*.txt)|*.txt|(*.rtf)|*.rtf";\par
+\par
+            \cf5 if\cf1  (sfd.ShowDialog() == DialogResult.OK)\par
+            \{\par
+                tb.SaveFile(sfd.FileName);\par
+                cestaSouboru = sfd.FileName;\par
+                ulozeno = true;\par
+            \}\par
+        \}\par
+\par
+        \cf3 public\cf1  \cf3 void\cf1  UlozitData(SaveFileDialog sfd, RichTextBox tb)\par
+        \{\par
+            \cf5 if\cf1 (cestaSouboru != "")\par
+            \{\par
+                tb.SaveFile(cestaSouboru);\par
+                ulozeno = true;\par
+            \}\par
+            \cf5 else\cf1\par
+            \{\par
+                \cf5 if\cf1  (sfd.ShowDialog() == DialogResult.OK)\par
+                \{\par
+                    tb.SaveFile(sfd.FileName);\par
+                    cestaSouboru = sfd.FileName;\par
+                    ulozeno = true;\par
+                \}\par
+            \}\par
+        \}\par
+\par
+        // funkce pro dot\'e1z\'e1n\'ed u\f0\'9eivatel, zda chce ulo\'9eit aktu\f1\'e1ln\'ed soubor p\f0\'f8i vytv\f1\'e1\f0\'f8en\f1\'ed nov\'e9ho\par
+        \cf3 public\cf1  \cf3 void\cf1  UlozitNovy(SaveFileDialog sfd, RichTextBox tb)\par
+        \{\par
+            ukladaniNovy = MessageBox.Show("Soubor nen\'ed ulo\f0\'9een, chcete ho ulo\'9eit?", "SOUBOR NEULO\'8eEN", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);\par
+        \}\par
+\par
+        // funkce pro zvolen\f1\'ed fontu\par
+        \cf3 public\cf1  \cf3 void\cf1  VyberFont(FontDialog fd, RichTextBox tb)\par
+        \{            \par
+            \cf5 if\cf1  (fd.ShowDialog() == DialogResult.OK)\par
+            \{\par
+                // pokud je ozna\f0\'e8en\f1\'fd n\f0\'ecjak\f1\'fd text, tak zm\f0\'ecny se aplikuj\f1\'ed jenom na tento text\par
+                \cf5 if\cf1  (tb.SelectedText != null)\par
+                \{\par
+                    tb.SelectionFont = fd.Font;\par
+                    tb.SelectionColor = fd.Color;\par
+                \} \par
+            \}\par
+        \}\par
+\par
+        \cf3 public\cf1  \cf3 void\cf1  Tisk(PrintDialog pd, RichTextBox tb)\par
+        \{\par
+            PrintDocument dokumentTisk = new PrintDocument();\par
+\par
+            pd.Document = dokumentTisk;\par
+            pd.AllowSelection = true;\par
+            pd.AllowSomePages = true;\par
+\par
+            \cf5 if\cf1  (pd.ShowDialog() == DialogResult.OK)\par
+            \{\par
+                dokumentTisk.Print(); \par
+            \}\par
+        \}\par
+\par
+        // funkce pro v\'fdb\f0\'ecr barvy\par
+        \cf3 public\cf1  \cf3 void\cf1  VyberBarvy(ColorDialog cd, RichTextBox tb)\par
+        \{\par
+            \cf5 if\cf1  (cd.ShowDialog() == DialogResult.OK)\par
+            \{\par
+                tb.SelectionColor = cd.Color;\par
+            \}\par
+        \}\par
+\par
+        // funkce pro zarovn\f1\'e1n\'ed textu doleva\par
+        \cf3 public\cf1  \cf3 void\cf1  ZarovnatDoleva(RichTextBox tb)\par
+        \{\par
+            \cf5 if\cf1 (tb.SelectedText != null)\par
+            \{\par
+                tb.SelectionAlignment = HorizontalAlignment.Left;\par
+            \}              \par
+        \}\par
+\par
+        // funkce pro zarovn\'e1n\'ed textu na st\f0\'f8ed\par
+        \cf3 public\cf1  \cf3 void\cf1  ZarovnatNaStred(RichTextBox tb)\par
+        \{\par
+            \cf5 if\cf1  (tb.SelectedText != null)\par
+            \{\par
+                tb.SelectionAlignment = HorizontalAlignment.Center;\par
+            \}\par
+        \}\par
+\par
+        // funkce pro zarovn\f1\'e1n\'ed textu doprava\par
+        \cf3 public\cf1  \cf3 void\cf1  ZarovnatDoprava(RichTextBox tb)\par
+        \{\par
+            \cf5 if\cf1  (tb.SelectedText != null)\par
+            \{\par
+                tb.SelectionAlignment = HorizontalAlignment.Right;\par
+            \}\par
+        \}\par
+\par
+        /*\par
+         * vyhled\'e1v\'e1n\'ed cel\'fdch slov funguje\par
+         * nefunguje vyhledav\'e1n\'ed \f0\'e8\f1\'e1st\'ed slov - nap\f0\'f8. v textu "auto je modre" hled\f1\'e1m "ut" -> funkce zv\'fdrazn\'ed "au" m\'edsto "ut" \par
+         */\par
+\par
+        // funkce pro vyhled\'e1n\'ed textu\par
+        \cf3 public\cf1  \cf3 void\cf1  VyhledatText(\cf4 string\cf1  hledatText, RichTextBox tb)\par
+        \{\par
+            tb.SelectAll();\par
+            tb.SelectionBackColor = Color.Transparent;\par
+            tb.DeselectAll();\par
+\par
+            // pozice slova v\f0\'9edy za\'e8\f1\'edn\'e1 na nule (za\f0\'e8\f1\'e1tek textu)\par
+            pozice = 0;\par
+            // do pole textArr se po proveden\'ed funkce Split vlo\f0\'9e\f1\'ed v\f0\'9aechna slova z richTextBoxu \par
+            \cf4 string\cf1 [] textArr = tb.Text.Split(new \cf4 string\cf1 [] \{ " ", "\\n", "\\t" \}, StringSplitOptions.None);\par
+\par
+            \cf5 for\cf1  (\cf4 int\cf1  i = 0; i < textArr.Length; i++)\par
+            \{\par
+                // pokud hledan\f1\'e9 slovo (text) se nach\'e1z\'ed v poli textArr (=> nach\'e1z\'ed se v richTextBoxu)\par
+                \cf5 if\cf1  (textArr[i].IndexOf(hledatText) >= 0)\par
+                \{\par
+                    // ozna\f0\'e8en\f1\'ed textu za\f0\'e8\f1\'edn\'e1 na pozici (za\f0\'e8\f1\'e1tek slova)\par
+                    tb.SelectionStart = pozice;\par
+                    // ozna\f0\'e8en\f1\'ed je dlouh\'e9, tak jak je dlouh\'e9 slovo (d\'e9lka slova)\par
+                    tb.SelectionLength = hledatText.Length;\par
+                    // pro lep\f0\'9a\f1\'ed orientaci v textu se hledan\'e9 slovo zv\'fdrazn\'ed tak, \f0\'9ee se pozad\f1\'ed slova zm\f0\'ecn\f1\'ed na \f0\'9eluto\par
+                    tb.SelectionBackColor = Color.Yellow;\par
+                    // hled\f1\'e1n\'fd text v richTextBoxu se zam\f0\'ecn\f1\'ed na zv\'fdrazn\f0\'ecn\f1\'ed text\par
+                    tb.SelectedText.Replace(hledatText, tb.SelectedText);\par
+                    // v\f0\'9aechen text se ododzna\'e8\f1\'ed pro dal\f0\'9a\f1\'ed pr\'e1ci\par
+                    tb.DeselectAll();\par
+                \}\par
+                // p\f0\'f8i\'e8\f1\'edt\'e1n\'ed pozice podle d\'e9lky slova + mezera\par
+                pozice += textArr[i].Length + 1;\par
+            \}\par
+        \}\par
+\par
+        // funckce k nazhrazen\'ed textu\par
+        \cf3 public\cf1  \cf3 void\cf1  NahraditText(\cf4 string\cf1  hledatText, \cf4 string\cf1  nahraditText, RichTextBox tb)\par
+        \{\par
+            pozice= 0;\par
+            \cf4 string\cf1 [] textArr = tb.Text.Split(new \cf4 string\cf1 [] \{ " ", "\\n", "\\t" \}, StringSplitOptions.None);\par
+\par
+            \cf5 for\cf1  (\cf4 int\cf1  i = 0; i < textArr.Length; i++)\par
+            \{\par
+                \cf5 if\cf1  (textArr[i].IndexOf(hledatText) >= 0)\par
+                \{\par
+                    tb.SelectionStart = pozice;\par
+                    tb.SelectionLength = hledatText.Length;\par
+\par
+                    tb.Text = tb.Text.Replace(tb.SelectedText, nahraditText);\par
+\par
+                    tb.SelectionStart = pozice;\par
+                    tb.SelectionLength = hledatText.Length;\par
+                    tb.SelectionBackColor = Color.YellowGreen;\par
+\par
+                    tb.DeselectAll();\par
+                \}\par
+                // p\f0\'f8i\'e8\f1\'edt\'e1n\'ed pozice podle d\'e9lky slova + mezera\par
+                pozice += textArr[i].Length + 1;\par
+            \}\par
+        \}\par
+\par
+        /*\par
+         * je pot\f0\'f8eba aby funkce ozna\'e8ila pouze TAGY a ne text mezi tagy\par
+         * funkce zv\f1\'fdrazn\'ed cel\'fd text (nap\f0\'f8. "<p>Ahoj Sv\'ecte!</p>") a ne jenom tagy "<p>" a "</p>"\par
+         */\par
+\par
+        // fukce pro syntaxi jazyka HTML\par
+        \cf3 public\cf1  \cf3 void\cf1  JazykHTLM(RichTextBox tb)\par
+        \{\par
+            // p\'f8ed zv\f1\'fdrazn\f0\'ecn\f1\'edm do syntaxe jazyka HTML, odzv\'fdraznit v\f0\'9aechen text\par
+            tb.SelectAll();\par
+            tb.SelectionColor = Color.Black;\par
+            tb.DeselectAll();\par
+\par
+            pozice = 0;\par
+\par
+            \cf4 string\cf1 [] textArr = tb.Text.Split(new \cf4 string\cf1 [] \{ " ", "\\n", "\\t" \}, StringSplitOptions.None);\par
+            \cf4 string\cf1 [] tagy = \{ "html", "body", "h", "a", "p", "img" \};\par
+\par
+            \cf5 for\cf1  (\cf4 int\cf1  i = 0; i < textArr.Length; i++)\par
+            \{\par
+                \cf5 for\cf1  (\cf4 int\cf1  j = 0; j < tagy.Length; j++)\par
+                \{\par
+                    \cf5 if\cf1  (textArr[i].Contains(tagy[j]))\par
+                    \{\par
+                        \cf5 if\cf1  (textArr[i].IndexOf(tagy[j]) >= 0)\par
+                        \{\par
+                            tb.SelectionStart  = tagy[j].Length + 2;\par
+                            tb.SelectionLength = textArr[i].Length - tagy[j].Length * 2 - 5;\par
+                            \cf4 string\cf1  temp = tb.SelectedText;\par
+                            tb.DeselectAll();\par
+\par
+                            //textArr[i] = textArr[i].Remove(tagy[j].Length + 1, temp.Length);\par
+\par
+                            tb.SelectionStart = pozice;\par
+\par
+                            \cf5 if\cf1  (textArr[i].Contains("/"))\par
+                            \{\par
+                                tb.SelectionLength = textArr[i].Length + 3;\par
+                            \}\par
+                            \cf5 else\cf1\par
+                            \{\par
+                                tb.SelectionLength = tagy[j].Length + 2;\par
+                            \}\par
+\par
+                            tb.SelectionColor = Color.Red;\par
+                            tb.SelectedText.Replace(textArr[i], tb.SelectedText);\par
+                            tb.DeselectAll();\par
+                        \}\par
+                    \}\par
+                \}\par
+                // p\'f8i\'e8\f1\'edt\'e1n\'ed pozice podle d\'e9lky slova + mezera\par
+                pozice += textArr[i].Length + 1;\par
+            \}\par
+        \}\par
+\par
+        /*\par
+         * syntaxe funguje pouze pokud je slovo (nap\f0\'f8. "if") samostatn\'ec (nap\'f8: "if (true)") | POT\'d8EBA P\'d8ED\'ccLAT\par
+         */\par
+\par
+        // funkce pro syntaxi jazyka C#\par
+        //\par
+        // jak vyhled\f1\'e1v\'e1n\'ed funguje, je pops\'e1no ve funkci VyhledatText();\par
+        \cf3 public\cf1  \cf3 void\cf1  JazykCsharp(RichTextBox tb)\par
+        \{\par
+            // p\f0\'f8ed zv\f1\'fdrazn\f0\'ecn\f1\'edm do syntaxe jazyka C#, odzv\'fdraznit v\f0\'9aechen text\par
+            tb.SelectAll();\par
+            tb.SelectionColor = Color.Black;\par
+            tb.DeselectAll();\par
+\par
+            pozice = 0;\par
+\par
+            \cf4 string\cf1 [] splitZnaky = \{" ", "\\n", "\\t", "(", ")", "[", "]", "\{", "\}" \};\par
+\par
+            \cf4 string\cf1 [] textArr = tb.Text.Split(splitZnaky, StringSplitOptions.None);\par
+            \cf4 string\cf1 [] znaky = \{ "namespace", "if", "else", "for", "foreach", "switch", "break", "default", "public", "private", "void", "string", "bool", "int", "char" \};\par
+\par
+            \cf5 for\cf1 (\cf4 int\cf1  i = 0; i < textArr.Length; i++)\par
+            \{\par
+                \cf5 for\cf1  (\cf4 int\cf1  j = 0; j < znaky.Length; j++)\par
+                \{\par
+                    \cf5 if\cf1  (znaky[j] == textArr[i])\par
+                    \{\par
+                        \cf5 if\cf1  (textArr[i].IndexOf(znaky[j]) >= 0)\par
+                        \{\par
+                            \cf5 if\cf1  (textArr[i].Contains("namespace"))\par
+                            \{\par
+                                tb.SelectionStart = pozice;\par
+                                tb.SelectionLength = znaky[j].Length;\par
+                                tb.SelectionColor = Color.LightBlue;\par
+                                tb.SelectedText.Replace(textArr[i], tb.SelectedText);\par
+                                tb.DeselectAll();\par
+                            \}\par
+                            \cf5 else\cf1  \cf5 if\cf1  (textArr[i] == "if" || textArr[i] == "else" || textArr[i] == "for" || textArr[i] == "foreach" || textArr[i] == "switch" || textArr[i] == "break" || textArr[i] == "default")\par
+                            \{\par
+                                tb.SelectionStart = pozice;\par
+                                tb.SelectionLength = znaky[j].Length;\par
+                                tb.SelectionColor = Color.FromArgb(118, 98, 164);\par
+                                tb.SelectedText.Replace(textArr[i], tb.SelectedText);\par
+                                tb.DeselectAll();\par
+                            \}\par
+                            \cf5 else\cf1  \cf5 if\cf1  (textArr[i] == "public" || textArr[i] == "private" || textArr[i] == "void")\par
+                            \{\par
+                                tb.SelectionStart = pozice;\par
+                                tb.SelectionLength = znaky[j].Length;\par
+                                tb.SelectionColor = Color.FromArgb(66, 150, 205);\par
+                                tb.SelectedText.Replace(textArr[i], tb.SelectedText);\par
+                                tb.DeselectAll();\par
+                            \}\par
+                            \cf5 else\cf1  \cf5 if\cf1 (textArr[i] == "string" || textArr[i] == "bool" || textArr[i] == "int" || textArr[i] == "char")\par
+                            \{\par
+                                tb.SelectionStart = pozice;\par
+                                tb.SelectionLength = znaky[j].Length;\par
+                                tb.SelectionColor = Color.FromArgb(30, 77, 167);\par
+                                tb.SelectedText.Replace(textArr[i], tb.SelectedText);\par
+                                tb.DeselectAll();\par
+                            \}\par
+                        \}\par
+                    \}\par
+                \}\par
+                // p\'f8i\'e8\f1\'edt\'e1n\'ed pozice podle d\'e9lky slova + mezera\par
+                pozice += textArr[i].Length + 1;\par
+            \}            \par
+        \}\par
+    \}\par
+\}\cf0\f0\lang1029\par
+}
+ 

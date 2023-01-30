@@ -1,0 +1,38 @@
+C:\Users\kindl.daniel10\OneDrive - Střední průmyslová škola a Vyšší odborná škola, Chomutov, Školní 50, příspěvková organizace\PRG\textovyEditor\textovyEditor\bin\Debug\textovyEditor.exe.config
+C:\Users\kindl.daniel10\OneDrive - Střední průmyslová škola a Vyšší odborná škola, Chomutov, Školní 50, příspěvková organizace\PRG\textovyEditor\textovyEditor\bin\Debug\textovyEditor.exe
+C:\Users\kindl.daniel10\OneDrive - Střední průmyslová škola a Vyšší odborná škola, Chomutov, Školní 50, příspěvková organizace\PRG\textovyEditor\textovyEditor\bin\Debug\textovyEditor.pdb
+C:\Users\kindl.daniel10\OneDrive - Střední průmyslová škola a Vyšší odborná škola, Chomutov, Školní 50, příspěvková organizace\PRG\textovyEditor\textovyEditor\obj\Debug\textovyEditor.csprojAssemblyReference.cache
+C:\Users\kindl.daniel10\OneDrive - Střední průmyslová škola a Vyšší odborná škola, Chomutov, Školní 50, příspěvková organizace\PRG\textovyEditor\textovyEditor\obj\Debug\textovyEditor.Properties.Resources.resources
+C:\Users\kindl.daniel10\OneDrive - Střední průmyslová škola a Vyšší odborná škola, Chomutov, Školní 50, příspěvková organizace\PRG\textovyEditor\textovyEditor\obj\Debug\textovyEditor.csproj.GenerateResource.cache
+C:\Users\kindl.daniel10\OneDrive - Střední průmyslová škola a Vyšší odborná škola, Chomutov, Školní 50, příspěvková organizace\PRG\textovyEditor\textovyEditor\obj\Debug\textovyEditor.csproj.CoreCompileInputs.cache
+C:\Users\kindl.daniel10\OneDrive - Střední průmyslová škola a Vyšší odborná škola, Chomutov, Školní 50, příspěvková organizace\PRG\textovyEditor\textovyEditor\obj\Debug\textovyEditor.exe
+C:\Users\kindl.daniel10\OneDrive - Střední průmyslová škola a Vyšší odborná škola, Chomutov, Školní 50, příspěvková organizace\PRG\textovyEditor\textovyEditor\obj\Debug\textovyEditor.pdb
+C:\Users\Daniel\OneDrive - Střední průmyslová škola a Vyšší odborná škola, Chomutov, Školní 50, příspěvková organizace\PRG\textovyEditor\textovyEditor\bin\Debug\textovyEditor.exe.config
+C:\Users\Daniel\OneDrive - Střední průmyslová škola a Vyšší odborná škola, Chomutov, Školní 50, příspěvková organizace\PRG\textovyEditor\textovyEditor\bin\Debug\textovyEditor.exe
+C:\Users\Daniel\OneDrive - Střední průmyslová škola a Vyšší odborná škola, Chomutov, Školní 50, příspěvková organizace\PRG\textovyEditor\textovyEditor\bin\Debug\textovyEditor.pdb
+C:\Users\Daniel\OneDrive - Střední průmyslová škola a Vyšší odborná škola, Chomutov, Školní 50, příspěvková organizace\PRG\textovyEditor\textovyEditor\obj\Debug\textovyEditor.csproj.AssemblyReference.cache
+C:\Users\Daniel\OneDrive - Střední průmyslová škola a Vyšší odborná škola, Chomutov, Školní 50, příspěvková organizace\PRG\textovyEditor\textovyEditor\obj\Debug\textovyEditor.csproj.SuggestedBindingRedirects.cache
+C:\Users\Daniel\OneDrive - Střední průmyslová škola a Vyšší odborná škola, Chomutov, Školní 50, příspěvková organizace\PRG\textovyEditor\textovyEditor\obj\Debug\textovyEditor.Properties.Resources.resources
+C:\Users\Daniel\OneDrive - Střední průmyslová škola a Vyšší odborná škola, Chomutov, Školní 50, příspěvková organizace\PRG\textovyEditor\textovyEditor\obj\Debug\textovyEditor.csproj.GenerateResource.cache
+C:\Users\Daniel\OneDrive - Střední průmyslová škola a Vyšší odborná škola, Chomutov, Školní 50, příspěvková organizace\PRG\textovyEditor\textovyEditor\obj\Debug\textovyEditor.csproj.CoreCompileInputs.cache
+C:\Users\Daniel\OneDrive - Střední průmyslová škola a Vyšší odborná škola, Chomutov, Školní 50, příspěvková organizace\PRG\textovyEditor\textovyEditor\obj\Debug\textovyEditor.exe
+C:\Users\Daniel\OneDrive - Střední průmyslová škola a Vyšší odborná škola, Chomutov, Školní 50, příspěvková organizace\PRG\textovyEditor\textovyEditor\obj\Debug\textovyEditor.pdb
+C:\Users\Daniel\OneDrive - Střední průmyslová škola a Vyšší odborná škola, Chomutov, Školní 50, příspěvková organizace\PRG\textovyEditor\textovyEditor\obj\Debug\textovyEditor.Form1_LamaPad.resources
+C:\Users\Daniel\OneDrive - Střední průmyslová škola a Vyšší odborná škola, Chomutov, Školní 50, příspěvková organizace\PRG\textovyEditor\textovyEditor\obj\Debug\textovyEditor.VyhledatText.resources
+C:\Users\Daniel\OneDrive - Střední průmyslová škola a Vyšší odborná škola, Chomutov, Školní 50, příspěvková organizace\PRG\textovyEditor\textovyEditor\obj\Debug\textovyEditor.FormInfo.resources
+C:\Users\Daniel\Desktop\textovyEditor\textovyEditor\bin\Debug\textovyEditor.exe.config
+C:\Users\Daniel\Desktop\textovyEditor\textovyEditor\bin\Debug\textovyEditor.exe
+C:\Users\Daniel\Desktop\textovyEditor\textovyEditor\bin\Debug\textovyEditor.pdb
+C:\Users\Daniel\Desktop\textovyEditor\textovyEditor\obj\Debug\textovyEditor.csproj.AssemblyReference.cache
+C:\Users\Daniel\Desktop\textovyEditor\textovyEditor\obj\Debug\textovyEditor.csproj.SuggestedBindingRedirects.cache
+C:\Users\Daniel\Desktop\textovyEditor\textovyEditor\obj\Debug\textovyEditor.Form1_LamaPad.resources
+C:\Users\Daniel\Desktop\textovyEditor\textovyEditor\obj\Debug\textovyEditor.FormInfo.resources
+C:\Users\Daniel\Desktop\textovyEditor\textovyEditor\obj\Debug\textovyEditor.Properties.Resources.resources
+C:\Users\Daniel\Desktop\textovyEditor\textovyEditor\obj\Debug\textovyEditor.VyhledatText.resources
+C:\Users\Daniel\Desktop\textovyEditor\textovyEditor\obj\Debug\textovyEditor.csproj.GenerateResource.cache
+C:\Users\Daniel\Desktop\textovyEditor\textovyEditor\obj\Debug\textovyEditor.csproj.CoreCompileInputs.cache
+C:\Users\Daniel\Desktop\textovyEditor\textovyEditor\obj\Debug\textovyEditor.exe
+C:\Users\Daniel\Desktop\textovyEditor\textovyEditor\obj\Debug\textovyEditor.pdb
+C:\Users\kindl.daniel10\OneDrive - Střední průmyslová škola a Vyšší odborná škola, Chomutov, Školní 50, příspěvková organizace\PRG\textovyEditor\textovyEditor\obj\Debug\textovyEditor.Form1_LamaPad.resources
+C:\Users\kindl.daniel10\OneDrive - Střední průmyslová škola a Vyšší odborná škola, Chomutov, Školní 50, příspěvková organizace\PRG\textovyEditor\textovyEditor\obj\Debug\textovyEditor.FormInfo.resources
+C:\Users\kindl.daniel10\OneDrive - Střední průmyslová škola a Vyšší odborná škola, Chomutov, Školní 50, příspěvková organizace\PRG\textovyEditor\textovyEditor\obj\Debug\textovyEditor.VyhledatText.resources
